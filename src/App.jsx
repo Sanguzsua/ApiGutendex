@@ -15,7 +15,7 @@ function App() {
        <nav className="c-menu">
           <Link to="/">Home</Link>
           <Link to="/Informativo">Informativo</Link>
-          <Link to="/Original">Mapa</Link>
+          <Link to="/Original">Original</Link>
           <Link to="/Favoritos">Favoritos</Link>
           <Link to="/Detalle">Detalle</Link>
         </nav>
@@ -24,7 +24,10 @@ function App() {
           <Route path="/Informativo" element={<Informativo /> } />
           <Route path="/Original" element={<Original /> } />
           <Route path="/Favoritos" element={<Favoritos /> } />
-          <Route path="/Detalle/:categoria/:id" element={<Detalle />} />
+          <Route path="/Detalle" element={<Detalle />} />
+          <Route path="/Detalle/:id" element={<Detalle />} />
+
+
 
 
       </Routes>

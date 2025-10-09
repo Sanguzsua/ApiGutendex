@@ -1,52 +1,48 @@
-import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
+import "./style.css";
 
 function Detalle() {
-  const { id } = useParams();
-  const [libroData, setLibroData] = useState(null);
+  const [libros, setLibros] = useState([]);
 
   useEffect(() => {
-    if (!id) return;
-
-    const url = `https://gutendex.com/books/${id}/`;
-
-    const fetchData = async () => {
+    const fetchLibros = async () => {
       try {
-        const response = await fetch(url);
-        if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
-
+        const response = await fetch("https://gutendex.com/books/");
+        if (!response.ok) throw new Error("Error al cargar los libros");
         const data = await response.json();
-
-        if (!data) {
-          console.warn(`Libro con id "${id}" no encontrado.`);
-        }
-
-        setLibroData(data);
+        setLibros(data.results);
       } catch (error) {
-        console.error("Error al cargar el JSON:", error);
+        console.error("Error:", error);
       }
     };
 
-    fetchData();
-  }, [id]);
+    fetchLibros();
+  }, []);
 
-  if (!libroData) return <p>Cargando libro...</p>;
+  if (libros.length === 0) return <p style={{ textAlign: "center" }}>Cargando libros...</p>;
 
   return (
-    <div>
-      <h1>{libroData.title}</h1>
-      <p>ID: {libroData.id}</p>
-      <p>Autores: {libroData.authors.map((a) => a.name).join(", ")}</p>
-      <p>Lenguajes: {libroData.languages.join(", ")}</p>
-      <p>Descargas: {libroData.download_count}</p>
+    <div className="detalle-container">
+      <h2>Detalles de los libros</h2>
+      <ul className="lista-detalle">
+        {libros.map((libro) => (
+          <li key={libro.id} className="libro-detalle">
+            <h3>{libro.title}</h3>
+            <p><b>ID:</b> {libro.id}</p>
+            <p><b>Autor(es):</b> {libro.authors.map((a) => a.name).join(", ") || "Desconocido"}</p>
+            <p><b>Lenguaje(s):</b> {libro.languages.join(", ")}</p>
+            <p><b>Descargas:</b> {libro.download_count}</p>
 
-      {libroData.formats["image/jpeg"] && (
-        <img
-          src={libroData.formats["image/jpeg"]}
-          alt={libroData.title}
-          style={{ maxWidth: "200px" }}
-        />
-      )}
+            {libro.formats["image/jpeg"] && (
+              <img
+                src={libro.formats["image/jpeg"]}
+                alt={libro.title}
+                className="detalle-img"
+              />
+            )}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

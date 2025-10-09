@@ -1,0 +1,29 @@
+.filtro {
+  margin: 10px 0;
+}
+
+button {
+  margin-right: 10px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+button.activo {
+  background-color: #333;
+  color: white;
+  border-color: #333;
+}
+
+.lista {
+  list-style: none;
+  padding: 0;
+}
+
+.lista li {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 8px;
+}
