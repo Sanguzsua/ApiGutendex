@@ -15,7 +15,7 @@ body {
   max-width: 1100px;
   margin: 0 auto;
   padding: 2rem;
-  flex: 1; /* Para que el menú quede al final */
+  flex: 1;
 }
 
 /* === MENÚ DE NAVEGACIÓN (ABAJO) === */
@@ -23,7 +23,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #4e73df; /* azul principal */
+  background-color: #4e73df;
   padding: 1rem;
   border-radius: 12px 12px 0 0;
   gap: 1.2rem;
@@ -79,7 +79,7 @@ input[type="text"]:focus {
   border-color: #4e73df;
 }
 
-/* === BOTONES FILTRO (Libros / Autores) === */
+/* === BOTONES FILTRO === */
 .filtro {
   margin: 1.5rem 0;
 }
@@ -184,6 +184,7 @@ button.activo {
   margin-top: 10px;
   display: block;
 }
+
 /* === JUEGO DE MEMORIA === */
 .juego-container {
   text-align: center;
@@ -253,4 +254,183 @@ button.activo {
   padding: 15px;
   border-radius: 10px;
   margin-bottom: 1rem;
+}
+
+/* === SECCIÓN INFORMATIVO === */
+.info-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Capa difuminada encima del fondo */
+.info-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  filter: blur(10px) brightness(0.5);
+  transform: scale(1.1);
+  z-index: 0;
+}
+
+/* Capa semitransparente oscura */
+.info-overlay {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: white;
+  background: rgba(0, 0, 0, 0.45);
+  padding: 2rem 3rem;
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+  max-width: 600px;
+}
+
+/* Título */
+.info-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+  letter-spacing: 1px;
+}
+
+/* Autor */
+.info-author {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: 1.5rem;
+}
+
+/* Imagen principal */
+.info-logo {
+  width: 230px;
+  height: auto;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 0 12px rgba(0, 0, 0, 0.6));
+}
+
+/* Descripción */
+.info-desc {
+  background-color: rgba(255, 255, 255, 0.15);
+  display: inline-block;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  margin-top: 0.8rem;
+}
+
+/* Enlace */
+.info-link {
+  display: block;
+  margin-top: 1rem;
+  color: #87cefa;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.info-link:hover {
+  text-decoration: underline;
+  color: #b4e0ff;
+}
+
+/* Versión */
+.info-version {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* === RESPONSIVE PARA CELULARES === */
+@media (max-width: 768px) {
+  #root {
+    padding: 1rem;
+  }
+
+  .c-menu {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.7rem;
+  }
+
+  .c-menu a {
+    font-size: 0.85rem;
+    padding: 6px 10px;
+  }
+
+  h4 {
+    font-size: 1.4rem;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+
+  .libro-detalle {
+    padding: 15px;
+  }
+
+  /* Informativo */
+  .info-overlay {
+    padding: 1.5rem;
+    max-width: 90%;
+  }
+
+  .info-title {
+    font-size: 1.9rem;
+  }
+
+  .info-author {
+    font-size: 1rem;
+  }
+
+  .info-logo {
+    width: 160px;
+  }
+
+  .info-desc {
+    font-size: 1rem;
+    padding: 0.5rem 0.8rem;
+  }
+
+  .info-link {
+    font-size: 0.9rem;
+  }
+
+  .info-version {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .info-title {
+    font-size: 1.6rem;
+  }
+
+  .info-logo {
+    width: 130px;
+  }
+
+  .info-overlay {
+    padding: 1rem;
+  }
+
+  .c-menu {
+    flex-direction: column;
+    border-radius: 0;
+  }
+
+  .c-menu a {
+    padding: 5px 8px;
+  }
 }
