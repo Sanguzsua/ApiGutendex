@@ -1,36 +1,35 @@
 import './style.css';
-import fondo from "../../assets/libros.png";
-
+import logo from '../../assets/libro-de-hechizos.png'; 
 
 function Informativo() {
   return (
-    <div 
-      className="info-container" 
-      style={{ backgroundImage: `url(${fondo})` }}
-    >
-      <div className="info-overlay">
-        <h1 className="info-title">BOOKS API</h1>
-        <p className="info-author">Santiago Guzmán</p>
+    
+    <div className="informativo-container">
+      <h1>Informativo</h1>
+      <header className="informativo-header">
+        <h1 className="informativo-titulo">ApiGutendex</h1>
+        <img src={logo} alt="Logo Colombia" className="informativo-logo" />
+        
+      </header>
 
-        <img 
-          src="src/assets/libro-de-hechizos.png" 
-          alt="Books Logo" 
-          className="info-logo"
-        />
+      <main className="informativo-contenido">
+        <h2>Santiago Guzmán Suarez</h2>
+        <p>
+          Api con información de libros
+        </p>
 
-        <p className="info-desc">Api con información de libros</p>
+        <div className="informativo-links">
+          <a 
+            href="https://github.com/Sanguzsua/ApiGutendex" 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            🔗 Repositorio en GitHub
+          </a>
+        </div>
 
-        <a 
-          href="https://github.com/Sanguzsua/ApiGutendex" 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="info-link"
-        >
-          https://github.com/Sanguzsua
-        </a>
-
-        <p className="info-version">v1.0.0</p>
-      </div>
+        <p className="informativo-version">Versión actual: <strong>v1.0.0</strong></p>
+      </main>
     </div>
   );
 }
