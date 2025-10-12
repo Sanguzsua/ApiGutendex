@@ -1,4 +1,5 @@
-/* === ESTILOS GENERALES === */
+/*ESTILOS GENERALES*/
+/* Se eliminan márgenes por defecto y se define fondo y tipografía. */
 body {
   margin: 0;
   padding: 0;
@@ -10,7 +11,7 @@ body {
   min-height: 100vh;
 }
 
-/* Centrado general del contenido principal */
+/* Centrado general del contenido principal dentro del root */
 #root {
   max-width: 1100px;
   margin: 0 auto;
@@ -18,7 +19,8 @@ body {
   flex: 1;
 }
 
-/* === MENÚ DE NAVEGACIÓN (ABAJO) === */
+/*  MENÚ DE NAVEGACIÓN (ABAJO)  */
+/* Contenedor fijo en la parte inferior, fondo azul y sombra. */
 .c-menu {
   display: flex;
   justify-content: center;
@@ -35,7 +37,7 @@ body {
   z-index: 1000;
 }
 
-/* Enlaces del menú */
+/* Estilo de los enlaces dentro del menú (texto blanco, padding) */
 .c-menu a {
   color: #fff;
   text-decoration: none;
@@ -46,25 +48,27 @@ body {
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-/* Efecto hover */
+/* Efecto al pasar el cursor: baja la sombra y sube el enlace */
 .c-menu a:hover {
   background-color: #3752b3;
   transform: translateY(-2px);
 }
 
-/* Enlace activo (página actual) */
+/* Enlace que representa la página actual */
 .c-menu a.active {
   background-color: #2b3f94;
   font-weight: 600;
 }
 
-/* === CONTENIDO GENERAL === */
+/*  CONTENIDO GENERAL  */
+/* Título secundario usado en secciones */
 h4 {
   font-size: 1.8rem;
   color: #333;
   margin-bottom: 1rem;
 }
 
+/* Estilos para campos de búsqueda / inputs de texto */
 input[type="text"] {
   width: 80%;
   max-width: 400px;
@@ -75,15 +79,18 @@ input[type="text"] {
   transition: border-color 0.3s ease;
 }
 
+/* Borde destacado cuando el input está enfocado */
 input[type="text"]:focus {
   border-color: #4e73df;
 }
 
-/* === BOTONES FILTRO === */
+/*  BOTONES FILTRO  */
+/* Contenedor de botones de filtro */
 .filtro {
   margin: 1.5rem 0;
 }
 
+/* Estilo base de botones (bordes redondeados, transición) */
 button {
   padding: 8px 16px;
   border-radius: 10px;
@@ -96,23 +103,27 @@ button {
   margin: 0 5px;
 }
 
+/* Hover para botones: se tiñen de azul y texto blanco */
 button:hover {
   background-color: #4e73df;
   color: white;
 }
 
+/* Botón activo con estilo resaltado */
 button.activo {
   background-color: #4e73df;
   color: white;
   font-weight: 600;
 }
 
-/* === LISTA DE LIBROS / AUTORES === */
+/*  LISTA DE LIBROS / AUTORES  */
+/* Lista sin viñetas ni padding */
 .lista {
   list-style: none;
   padding: 0;
 }
 
+/* Estilo para cada elemento de la lista (tarjeta blanca) */
 .lista li {
   background-color: white;
   padding: 15px 20px;
@@ -123,18 +134,21 @@ button.activo {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+/* Elevación ligera al pasar el cursor sobre el item */
 .lista li:hover {
   transform: translateY(-4px);
   box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
 }
 
+/* Tamaño y estilo de las imágenes dentro de la lista */
 .lista img {
   margin-top: 10px;
   width: 100px;
   border-radius: 8px;
 }
 
-/* === ITEMS DE LIBROS === */
+/*  ITEMS DE LIBROS  */
+/* Distribución del contenido interno (titulo/imagen/acciones) */
 .libro-item {
   display: flex;
   justify-content: space-between;
@@ -143,22 +157,26 @@ button.activo {
   padding: 10px;
 }
 
-/* === DETALLE DE LIBROS === */
+/*DETALLE DE LIBROS*/
+/* Contenedor con padding para la vista detalle */
 .detalle-container {
   padding: 2rem;
 }
 
+/* Título centrado dentro del detalle */
 .detalle-container h2 {
   text-align: center;
   margin-bottom: 2rem;
   color: #333;
 }
 
+/* Lista sin viñetas para detalles */
 .lista-detalle {
   list-style: none;
   padding: 0;
 }
 
+/* Tarjeta con información extendida del libro */
 .libro-detalle {
   background-color: white;
   border-radius: 12px;
@@ -168,16 +186,19 @@ button.activo {
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
+/* Efecto hover para tarjetas de detalle */
 .libro-detalle:hover {
   transform: translateY(-4px);
   box-shadow: 0 5px 14px rgba(0, 0, 0, 0.15);
 }
 
+/* Título del libro en el detalle (color azul) */
 .libro-detalle h3 {
   color: #4e73df;
   margin-bottom: 10px;
 }
 
+/* Imagen del detalle (portada) */
 .detalle-img {
   max-width: 150px;
   border-radius: 8px;
@@ -185,12 +206,14 @@ button.activo {
   display: block;
 }
 
-/* === JUEGO DE MEMORIA === */
+/*JUEGO DE MEMORIA*/
+/* Contenedor del juego centrado */
 .juego-container {
   text-align: center;
   padding: 1rem;
 }
 
+/* Grid que organiza las cartas (4 columnas fijas) */
 .grid-cartas {
   display: grid;
   grid-template-columns: repeat(4, 120px);
@@ -199,6 +222,7 @@ button.activo {
   margin-top: 2rem;
 }
 
+/* Cada carta con perspectiva 3D para el efecto de volteo */
 .carta {
   position: relative;
   width: 120px;
@@ -207,6 +231,7 @@ button.activo {
   cursor: pointer;
 }
 
+/* Definición de las dos caras de la carta */
 .carta .cara {
   position: absolute;
   width: 100%;
@@ -216,6 +241,7 @@ button.activo {
   transition: transform 0.6s;
 }
 
+/* Cara frontal: contiene la imagen del libro */
 .carta .frente {
   transform: rotateY(180deg);
   background: white;
@@ -224,6 +250,7 @@ button.activo {
   align-items: center;
 }
 
+/* Imagen dentro de la carta (encaja y cubre) */
 .carta .frente img {
   width: 100%;
   height: 100%;
@@ -231,6 +258,7 @@ button.activo {
   border-radius: 10px;
 }
 
+/* Reverso de la carta: icono y fondo azul */
 .carta .reverso {
   background-color: #4e73df;
   color: white;
@@ -240,6 +268,7 @@ button.activo {
   align-items: center;
 }
 
+/* Clases que aplican rotación cuando la carta está volteada */
 .carta.volteada .frente {
   transform: rotateY(0deg);
 }
@@ -248,6 +277,7 @@ button.activo {
   transform: rotateY(180deg);
 }
 
+/* Mensaje que se muestra al ganar el juego */
 .mensaje-ganador {
   background-color: #d4edda;
   color: #155724;
@@ -256,7 +286,8 @@ button.activo {
   margin-bottom: 1rem;
 }
 
-/* === SECCIÓN INFORMATIVO === */
+/*SECCIÓN INFORMATIVO*/
+/* Contenedor principal para la pantalla informativa (fondo imagen) */
 .info-container {
   position: relative;
   width: 100%;
@@ -271,7 +302,7 @@ button.activo {
   font-family: "Poppins", sans-serif;
 }
 
-/* Capa difuminada encima del fondo */
+/* Capa difuminada encima del fondo para suavizar la imagen */
 .info-container::before {
   content: "";
   position: absolute;
@@ -282,7 +313,7 @@ button.activo {
   z-index: 0;
 }
 
-/* Capa semitransparente oscura */
+/* Caja semitransparente con texto encima del fondo */
 .info-overlay {
   position: relative;
   z-index: 1;
@@ -295,7 +326,7 @@ button.activo {
   max-width: 600px;
 }
 
-/* Título */
+/* Título grande de la sección informativa */
 .info-title {
   font-size: 2.8rem;
   font-weight: 700;
@@ -303,14 +334,14 @@ button.activo {
   letter-spacing: 1px;
 }
 
-/* Autor */
+/* Nombre del autor o responsable */
 .info-author {
   font-size: 1.1rem;
   opacity: 0.9;
   margin-bottom: 1.5rem;
 }
 
-/* Imagen principal */
+/* Imagen o logo principal en la sección informativa */
 .info-logo {
   width: 230px;
   height: auto;
@@ -318,7 +349,7 @@ button.activo {
   filter: drop-shadow(0 0 12px rgba(0, 0, 0, 0.6));
 }
 
-/* Descripción */
+/* Fragmento de descripción sobre la app */
 .info-desc {
   background-color: rgba(255, 255, 255, 0.15);
   display: inline-block;
@@ -328,7 +359,7 @@ button.activo {
   margin-top: 0.8rem;
 }
 
-/* Enlace */
+/* Enlace destacado (ej. GitHub) */
 .info-link {
   display: block;
   margin-top: 1rem;
@@ -338,19 +369,21 @@ button.activo {
   transition: color 0.3s ease;
 }
 
+/* Hover para enlace informativo */
 .info-link:hover {
   text-decoration: underline;
   color: #b4e0ff;
 }
 
-/* Versión */
+/* Texto con la versión de la app */
 .info-version {
   margin-top: 0.5rem;
   font-size: 0.9rem;
   opacity: 0.8;
 }
 
-/* === RESPONSIVE PARA CELULARES === */
+/* RESPONSIVE PARA CELULARES */
+/* Ajustes para pantallas medias (tablets / móviles grandes) */
 @media (max-width: 768px) {
   #root {
     padding: 1rem;
@@ -380,7 +413,6 @@ button.activo {
     padding: 15px;
   }
 
-  /* Informativo */
   .info-overlay {
     padding: 1.5rem;
     max-width: 90%;
@@ -412,6 +444,7 @@ button.activo {
   }
 }
 
+/* Ajustes extra para pantallas muy pequeñas (móviles pequeños) */
 @media (max-width: 480px) {
   .info-title {
     font-size: 1.6rem;
